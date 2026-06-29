@@ -1,0 +1,134 @@
+:root {
+  color-scheme: dark;
+  --bg: linear-gradient(135deg, #071b3f, #0c4f8a 55%, #1d7fd8);
+  --card: rgba(255, 255, 255, 0.14);
+  --border: rgba(255, 255, 255, 0.25);
+  --text: #f7fbff;
+  --muted: #dcecff;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.app {
+  width: min(100%, 1000px);
+  background: var(--card);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.16);
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.main-card, .forecast-card {
+  background: rgba(8, 24, 53, 0.45);
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.main-card {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 20px;
+}
+
+.temp {
+  font-size: 3.8rem;
+  font-weight: 700;
+  margin: 6px 0;
+}
+
+.condition {
+  font-size: 1.2rem;
+  color: var(--muted);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.stat {
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.08);
+}
+
+.stat strong { display: block; font-size: 1.05rem; margin-bottom: 4px; }
+
+.hourly, .daily {
+  display: grid;
+  gap: 12px;
+}
+
+.hourly {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.daily {
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.hourly .box, .daily .box {
+  background: rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 10px;
+  text-align: center;
+  min-height: 110px;
+}
+
+.box .time { font-size: 0.9rem; color: var(--muted); }
+.box .value { font-size: 1.05rem; font-weight: 600; margin: 8px 0; }
+
+.footer {
+  margin-top: 16px;
+  color: var(--muted);
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 840px) {
+  .main-card { grid-template-columns: 1fr; }
+  .hourly { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .daily { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 560px) {
+  .app { padding: 16px; }
+  .hourly, .daily, .stats { grid-template-columns: 1fr; }
+  .temp { font-size: 3rem; }
+}
