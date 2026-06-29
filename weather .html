@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delhi Weather</title>
+    <link rel="stylesheet" href="weather.css" />
+  </head>
+  <body>
+    <div class="app">
+      <div class="header">
+        <div>
+          <div class="badge">Delhi, India</div>
+          <h1 style="margin: 8px 0 4px;">Live Weather</h1>
+          <p id="updatedAt" style="margin: 0; color: var(--muted);">Loading Delhi weather...</p>
+        </div>
+        <div class="badge" id="lastUpdated">Updated just now</div>
+      </div>
+
+      <div class="grid">
+        <section class="main-card">
+          <div>
+            <div id="weatherIcon" style="font-size: 3rem;">☀️</div>
+            <div id="temperature" class="temp">--</div>
+            <div id="condition" class="condition">Checking conditions...</div>
+            <div class="stats">
+              <div class="stat"><strong id="feelsLike">--</strong><span>Feels like</span></div>
+              <div class="stat"><strong id="humidity">--</strong><span>Humidity</span></div>
+              <div class="stat"><strong id="wind">--</strong><span>Wind</span></div>
+              <div class="stat"><strong id="pressure">--</strong><span>Pressure</span></div>
+            </div>
+          </div>
+          <div>
+            <h3 style="margin-top: 0;">Today in Delhi</h3>
+            <p id="summary" style="line-height: 1.6; color: var(--muted);">
+              Delhi’s weather is being fetched from live forecast data.
+            </p>
+            <div class="stats">
+              <div class="stat"><strong id="sunrise">--</strong><span>Sunrise</span></div>
+              <div class="stat"><strong id="sunset">--</strong><span>Sunset</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="forecast-card">
+          <h3 style="margin-top: 0;">Next 6 hours</h3>
+          <div id="hourlyForecast" class="hourly"></div>
+        </section>
+
+        <section class="forecast-card">
+          <h3 style="margin-top: 0;">7-day outlook</h3>
+          <div id="dailyForecast" class="daily"></div>
+        </section>
+      </div>
+
+      <div class="footer">Built for the Delhi region with live forecast data.</div>
+    </div>
+
+    <script src="weather.js"></script>
+  </body>
+</html>
